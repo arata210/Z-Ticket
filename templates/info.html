@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>《{{title}}》 - STAR影院</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="icon" href="static/icon.png">
+    <style type="text/css">
+
+    body {
+    margin: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.flex-item {
+    box-sizing: border-box;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px 0 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+.scroll-body {
+    overflow-y: auto;
+    max-height: calc(100vh - 40px);
+}
+
+.film-detail-content {
+    text-align: center;
+}
+
+.title-box {
+    margin-bottom: 20px;
+}
+
+.title-box img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.film-info h2 {
+    margin: 10px 0;
+    font-size: 35px;
+}
+
+.introduction-box p {
+    text-align: left;
+    line-height: 1.5;
+    color: #333;
+}
+
+.actors-box {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.actors-box .flex-cont {
+    font-weight: bold;
+}
+
+.actors-box .content p {
+    margin: 5px 0;
+}
+
+.footer-box {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-bp1 {
+    background-color: #FFD700;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.btn-bp1:hover {
+    background-color: #FFC000;
+}
+
+.flex-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-icon i {
+    margin-right: 5px; /* 调整图标距离文本的距离 */
+}
+.title-text {
+    font-size: 35px;
+    margin-top: 10px; /* 调整标题与图标的垂直距离 */
+    text-align: center;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="flex-item scroll-body">
+<section class="title-box">
+                <div class="flex-cont felx-endbox">
+                    <div class="back-icon">
+    <i class="fas fa-arrow-left" onclick="window.location.href='/starcinema';"></i>
+                    </div></div>
+<div class="title-text">{{title}}</div>
+            <div class="film-detail-content">
+                <section class="title-box">
+                    <div class="flex-cont flex-endbox">
+                        <div class="film-img"><img src="{{movie_cover}}"></div>
+                        <div class="film-info flex-item">
+                            <p>{{genre}}</p>
+                            <p>{{country}} | {{movie_length}}分钟</p>
+                            <p>{{release}}上映</p>
+                            <p><span>{{rating_num}}</span></p>
+                        </div>
+                    </div>
+                </section>
+                <section class="introduction-box">
+                    <p class="">{{movie_intro}}</p>
+                </section>
+                <section class="actors-box">
+                    <div class="flex-cont title"><h2>演职人员</h2></div>
+                        <p><label>导演：</label><span>{{director}}</span></p>
+                        <p><label>主演：</label><span>{{actor}}</span></p>
+                </section>
+            </div>
+            <div class="footer-box"><button class="btn-bp1" onclick="window.location.href='/starcinema/session.html?movie_id={{movie_id}}';">选座购票</button></div>
+</section>
+    </div>
+</body>
+
+</html>

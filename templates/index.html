@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARCinema(二工大店) - 首页</title>
+    <link rel="icon" href="static/icon.png">
+    <style type="text/css">
+        body{
+        height: 100vh;
+        }
+        ul {
+    list-style: none;
+    padding: 0;
+}
+input {
+            margin-left: 100px;
+        }
+li {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+.flex-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.c-left img {
+    max-width: 100%;
+    height: auto;
+}
+
+.flex-item {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.c-middle h2 {
+    margin: 0;
+}
+
+.flex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.max-ver {
+    background-color: #ff9800;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: auto;
+}
+
+.info {
+    color: #777;
+}
+
+.corner-tips {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.c-right p {
+    margin: 0;
+    text-align: center;
+}
+
+.btn-bg4 {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-hot {
+    background-color: #e74c3c;
+    border-radius: 30px;
+}
+
+.btn-bg4:hover,
+.btn-hot:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1 align="center">STAR影院(二工大店)<span><input type="text" id="orderQueryInput" placeholder="输入查询订单"></span></h1>
+        <!-- 在这里插入Jinja2模板语法 -->
+        <p class>距离市中心{{address}}km, 周边距{{near_by[0]}}, 距{{near_by[1]}}</p>
+        <ul>
+            {{ data | safe  }}
+        </ul>
+        <!-- 将Flask传递的数据放入某个框（元素）中 -->
+    </div>
+<script>
+        // 获取输入框元素
+        var orderQueryInput = document.getElementById("orderQueryInput");
+
+        // 监听输入框的键盘事件
+        orderQueryInput.addEventListener("keydown", function(event) {
+            // 判断是否按下了回车键（Enter键的键码是13）
+            if (event.keyCode === 13) {
+                // 获取输入框的值
+                var queryValue = orderQueryInput.value;
+
+                // 构建跳转的URL，这里假设目标页面为 /target_page
+                var targetUrl = "/starcinema/order.html?order_id=" + encodeURIComponent(queryValue);
+
+                // 执行页面跳转
+                window.location.href = targetUrl;
+            }
+        });
+    </script>
+</body>
+</html>

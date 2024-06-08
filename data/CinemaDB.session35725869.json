@@ -1,0 +1,33 @@
+[{
+  "_id": 1,
+  "movie_id": "35725869",
+  "date": "2024-01-10",
+  "start_time": "19:00",
+  "language": "国语",
+  "type": "2D",
+  "price": "30",
+  "finish_time": "20:57",
+  "hall": "1号厅"
+},
+{
+  "_id": 2,
+  "movie_id": "35725869",
+  "date": "2024-01-10",
+  "start_time": "20:15",
+  "language": "国语",
+  "type": "2D",
+  "price": "30",
+  "finish_time": "22:12",
+  "hall": "3号厅"
+},
+{
+  "_id": 3,
+  "movie_id": "35725869",
+  "date": "2024-01-10",
+  "start_time": "21:00",
+  "language": "国语",
+  "type": "2D",
+  "price": "30",
+  "finish_time": "22:57",
+  "hall": "2号厅"
+}]

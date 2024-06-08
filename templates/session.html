@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>《{{title}}》 - STAR影院 </title>
+    <link rel="icon" href="static/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <style>
+        body{
+        height: 100vh;
+        }
+        /* 电影内容的样式 */
+        .scroll-body {
+            padding: 20px;
+            text-align: center;
+
+        }
+
+        .cinema-film-content {
+            flex: 1;
+        }
+
+        /* 电影图片的样式 */
+        .c-left img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 电影信息的样式 */
+        .film-info {
+            margin-top: 20px;
+        }
+
+        .film-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* 电影评分的样式 */
+        .cont span {
+            font-size: 18px;
+            color: #e44d26;
+            /* 或者你喜欢的评分颜色 */
+            text-align: center;
+        }
+
+        /* 日期列表的样式 */
+        .date-list {
+            margin-top: 20px;
+        }
+
+        .date-list ul {
+            display: flex;
+            padding: 0;
+            list-style-type: none;
+
+        }
+
+        .date-list li {
+            flex: 1;
+            text-align: center;
+            list-style-type: none;
+        }
+
+        .date-box label {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+
+        .line-box {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .line {
+            height: 2px;
+            width: 100%;
+            background-color: #e44d26;
+            /* 或者你喜欢的线条颜色 */
+        }
+
+        /* 日程部分的样式 */
+        .schedule-section {
+            margin-top: 20px;
+
+
+        }
+
+        /* 电影日期日程的样式 */
+        .film-date-schedule {
+            overflow-x: auto;
+        }
+
+        .schedule-content {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            box-sizing:border-box;
+        }
+
+        .schedule-content li {
+            width: 100%;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+
+        .flex-cont {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .s-left {
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .s-middle {
+            flex: 3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .s-right {
+            flex: 1;
+            text-align: right;
+        }
+
+        .s-left p {
+            font-size: 35px;
+            margin: 5px;
+        }
+
+        .s-left span {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Style for the movie details */
+        .s-middle p {
+            font-size: 20px;
+            margin-bottom: 0px;
+        }
+
+        .s-middle span {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .note {
+            display: none;
+        }
+
+        /* Style for the price */
+        .s-right p {
+            margin-bottom: 5px;
+        }
+
+        .sign {
+            font-size: 14px;
+            color: #hhh;
+        }
+
+        .jiage {
+            font-size: 35px;
+            color: #e44d26;
+            /* or your preferred color for the price */
+        }
+
+        /* 用于晚场日程的额外样式 */
+        .schedule-evening {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            /* 可以根据需要调整 padding 大小 */
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-item scroll-body">
+        <div class="cinema-film-content">
+            <div class="back-icon">
+                <i class="fas fa-arrow-left" onclick="window.location.href='/starcinema';"></i>
+            </div>
+            <div class="c-left"><img width="350"
+                    src="{{cover}}">
+            </div>
+            <section class="film-info">
+                <h2>{{title}}</h2>
+                <div>
+                    <div class="cont"><span>{{rating}}</span></div>
+                </div>
+            </section>
+            <section class="date-list">
+                <ul>
+                    <li class="active">
+                        <div class="cont date-box">
+                            <div class="cont aligncenter"><label>今天 01-10</label></div>
+                        </div>
+                        <div class="flex-cont flex-centerbox line-box">
+                            <div class="line"></div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="cont date-box">
+                            <div class="cont aligncenter"><label>明天 01-11</label></div>
+                        </div>
+
+                    </li>
+                    <li class="">
+                        <div class="cont date-box">
+                            <div class="cont aligncenter"><label>后天 01-12</label></div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="schedule-section">
+                <div class="film-date-schedule">
+                    <ul class="flex-item schedule-content schedule-evening">
+                        {{sessions | safe}}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
